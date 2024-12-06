@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=3 uid="uid://bhu0eykwdf127"]
+
+[ext_resource type="Script" path="res://Scripts/END.gd" id="1_x7uwh"]
+[ext_resource type="Texture2D" uid="uid://chsm5fsw8sxo" path="res://Rocky Roads/Backgrounds/desert_a.png" id="2_x02li"]
+[ext_resource type="Texture2D" uid="uid://b5lhvqtn7c1vk" path="res://Rocky Roads/Backgrounds/mountains_a.png" id="3_omgy5"]
+[ext_resource type="Texture2D" uid="uid://dxaxdqefjqghj" path="res://Rocky Roads/Backgrounds/trees.png" id="4_7mubx"]
+[ext_resource type="Texture2D" uid="uid://d3eaa4k3hkq1l" path="res://Rocky Roads/Deco/tree.png" id="5_esalm"]
+[ext_resource type="Texture2D" uid="uid://2niewg6xngn2" path="res://Rocky Roads/Enemies/chicken.png" id="6_nxsoo"]
+[ext_resource type="Texture2D" uid="uid://dw64gjuvtfy7l" path="res://Rocky Roads/Objects/coin_silver.png" id="7_x8yo5"]
+[ext_resource type="AudioStream" uid="uid://carlejcmuovqb" path="res://Player_Jump.mp3" id="8_7ut3r"]
+[ext_resource type="AudioStream" uid="uid://cv4fkmgvwgqle" path="res://MusicaJ1.mp3" id="9_r6evv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66eul"]
+bg_color = Color(0.117647, 0.572549, 0.458824, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gi50"]
+bg_color = Color(1, 0.941176, 0.709804, 0.776471)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_nb4ky"]
+font_size = 48
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-3.575, 2.095)
+
+[node name="END" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x7uwh")
+
+[node name="DesertA" type="Sprite2D" parent="."]
+position = Vector2(571, 157)
+scale = Vector2(5.91797, 3.53125)
+texture = ExtResource("2_x02li")
+
+[node name="MountainsA" type="Sprite2D" parent="."]
+position = Vector2(571.5, 337.906)
+scale = Vector2(4.57422, 4.87646)
+texture = ExtResource("3_omgy5")
+
+[node name="Trees" type="Sprite2D" parent="."]
+position = Vector2(579, 514)
+scale = Vector2(4.54297, 2.24219)
+texture = ExtResource("4_7mubx")
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(1067, 549)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("5_esalm")
+
+[node name="Tree3" type="Sprite2D" parent="."]
+position = Vector2(487, 564)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("5_esalm")
+
+[node name="Tree5" type="Sprite2D" parent="."]
+position = Vector2(757, 575)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("5_esalm")
+
+[node name="Tree4" type="Sprite2D" parent="."]
+position = Vector2(292, 580)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("5_esalm")
+
+[node name="Tree2" type="Sprite2D" parent="."]
+position = Vector2(29.0002, 559)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("5_esalm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -13.5
+offset_right = 74.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_66eul")
+text = "Continue"
+
+[node name="Chicken" type="Sprite2D" parent="."]
+position = Vector2(484, 309)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_nxsoo")
+hframes = 7
+vframes = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 225.0
+offset_right = 560.0
+offset_bottom = 248.0
+
+[node name="Panel_Eggs" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 215.0
+offset_right = 666.0
+offset_bottom = 277.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7gi50")
+
+[node name="Egg" type="Sprite2D" parent="."]
+position = Vector2(499, 246)
+scale = Vector2(4, 4)
+texture = ExtResource("7_x8yo5")
+hframes = 8
+frame = 2
+
+[node name="Num_Eggs" type="Label" parent="."]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 211.0
+offset_right = 608.0
+offset_bottom = 281.0
+text = "00/00"
+label_settings = SubResource("LabelSettings_nb4ky")
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7ut3r")
+pitch_scale = 0.8
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_r6evv")
+volume_db = -13.538
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Button_Continue" to="." method="_on_button_continue_pressed"]

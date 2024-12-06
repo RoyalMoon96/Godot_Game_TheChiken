@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://bctxqeo62son5"]
+
+[ext_resource type="Texture2D" uid="uid://chsm5fsw8sxo" path="res://Rocky Roads/Backgrounds/desert_a.png" id="1_12q81"]
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_af1js"]
+[ext_resource type="Texture2D" uid="uid://b5lhvqtn7c1vk" path="res://Rocky Roads/Backgrounds/mountains_a.png" id="2_dai12"]
+[ext_resource type="Texture2D" uid="uid://dxaxdqefjqghj" path="res://Rocky Roads/Backgrounds/trees.png" id="3_nbpg8"]
+[ext_resource type="Texture2D" uid="uid://d3eaa4k3hkq1l" path="res://Rocky Roads/Deco/tree.png" id="4_mmuht"]
+[ext_resource type="Texture2D" uid="uid://2niewg6xngn2" path="res://Rocky Roads/Enemies/chicken.png" id="6_t1etf"]
+[ext_resource type="AudioStream" uid="uid://carlejcmuovqb" path="res://Player_Jump.mp3" id="7_6vwp7"]
+[ext_resource type="AudioStream" uid="uid://cv4fkmgvwgqle" path="res://MusicaJ1.mp3" id="8_02l3n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66eul"]
+bg_color = Color(0.117647, 0.572549, 0.458824, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bxln"]
+bg_color = Color(0.639216, 0.141176, 0.141176, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="Menu" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_af1js")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+
+[node name="DesertA" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(571, 157)
+scale = Vector2(5.91797, 3.53125)
+texture = ExtResource("1_12q81")
+
+[node name="MountainsA" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(571.5, 337.906)
+scale = Vector2(4.57422, 4.87646)
+texture = ExtResource("2_dai12")
+
+[node name="Trees" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(579, 514)
+scale = Vector2(4.54297, 2.24219)
+texture = ExtResource("3_nbpg8")
+
+[node name="Tree" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(1067, 549)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("4_mmuht")
+
+[node name="Tree3" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(487, 564)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("4_mmuht")
+
+[node name="Tree5" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(757, 575)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("4_mmuht")
+
+[node name="Tree4" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(292, 580)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("4_mmuht")
+
+[node name="Tree2" type="Sprite2D" parent="VBoxContainer2"]
+position = Vector2(29.0002, 559)
+scale = Vector2(4.63, 4.63)
+texture = ExtResource("4_mmuht")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -35.5
+offset_right = 74.0
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_66eul")
+text = "Play"
+
+[node name="Button_Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bxln")
+text = "Quit"
+
+[node name="Chicken" type="Sprite2D" parent="."]
+position = Vector2(482, 292)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_t1etf")
+hframes = 7
+vframes = 2
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6vwp7")
+pitch_scale = 0.8
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_02l3n")
+volume_db = -13.538
+autoplay = true
+
+[connection signal="focus_entered" from="VBoxContainer/Button_Play" to="." method="_on_button_focus_entered"]
+[connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Button_Quit" to="." method="_on_button_focus_entered"]
+[connection signal="pressed" from="VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
